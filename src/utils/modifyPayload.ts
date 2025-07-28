@@ -7,7 +7,8 @@ export const modifyPayload = (values: any) => {
       name: values.normalUser.name,
       email: values.normalUser.email,
       referredBy: values.normalUser.referredBy || "",
-      userName: "refytxx2" + Date.now().toString(),
+      userName: values.normalUser?.userName, 
+      contactNo: values.normalUser.contactNo,
     },
   };
 };

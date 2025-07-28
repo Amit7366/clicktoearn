@@ -1,6 +1,7 @@
 import { USER_ROLE } from "@/contants/role";
 import { SvgIconTypeMap } from "@mui/material";
 import { OverridableComponent } from "@mui/material/OverridableComponent";
+import { ReactNode } from "react";
 
 export type IMeta = {
   page: number;
@@ -10,12 +11,11 @@ export type IMeta = {
 
 export type UserRole = keyof typeof USER_ROLE;
 
-export interface DrawerItem {
-  title: string;
-  path: string;
-  parentPath?: string;
-  icon?: OverridableComponent<SvgIconTypeMap<{}, "svg">> & { muiName: string };
-  child?: DrawerItem[];
+export interface DrawerItems {
+  name: string;
+  path?: string;
+  icon: ReactNode;
+  children?: DrawerItems[];
 }
 
 export type ResponseSuccessType = {

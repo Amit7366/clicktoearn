@@ -1,10 +1,13 @@
+"use client";
 import React from "react";
 import { FaFacebookF, FaTwitter, FaLinkedinIn, FaSkype } from "react-icons/fa";
 import { BsClock } from "react-icons/bs";
+import { menu } from "./Navbar";
+import Link from "next/link";
 
 const Footer = () => {
   return (
-    <footer className="bg-[#0B0A1E] text-white px-6 md:px-16 py-12">
+    <footer className="bg-primary text-white px-6 md:px-16 py-12">
       <div className="container mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-2xl md:text-3xl font-bold">
@@ -40,22 +43,20 @@ const Footer = () => {
           <div>
             <h3 className="font-semibold text-lg mb-3">Usefull Links</h3>
             <ul className="space-y-2 text-sm text-gray-400">
-              <li>About Us</li>
-              <li>Teachers</li>
-              <li>Partner</li>
-              <li>Room-Details</li>
-              <li>Gallery</li>
+              {
+                menu.map((item,idx) =>  <li key={idx}><Link href={item.href}>{item.label}</Link></li>)
+              }
+             
+             
             </ul>
           </div>
 
           <div>
             <h3 className="font-semibold text-lg mb-3">Course</h3>
             <ul className="space-y-2 text-sm text-gray-400">
-              <li>UI UX Design</li>
-              <li>Web Development</li>
-              <li>Business Strategy</li>
-              <li>Software Development</li>
-              <li>Business English</li>
+             {
+                menu.map((item,idx) =>  <li key={idx}><Link href={item.href}>{item.label}</Link></li>)
+              }
             </ul>
           </div>
 
@@ -82,12 +83,12 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-gray-700 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center">
-          <div className="flex items-center gap-2 text-lg font-bold">
+          {/* <div className="flex items-center gap-2 text-lg font-bold">
             <span className="text-yellow-400 text-2xl">📚</span>
             Genius<span className="text-green-500">Andro</span>
-          </div>
+          </div> */}
           <p className="text-gray-400 text-sm mt-2 md:mt-0">
-            Copyright © <span className="text-blue-400">2025</span> by GeniusAndro.
+            Copyright © <span className="text-blue-400">2025</span> by Us.
             All Rights Reserved.
           </p>
           <div className="flex gap-4 mt-2 md:mt-0">

@@ -35,14 +35,16 @@ const CIForm = ({
   const { handleSubmit, reset } = methods;
 
   const submit: SubmitHandler<FieldValues> = (data) => {
-    console.log(data);
+    //console.log(data);
     onSubmit(data);
     reset();
   };
 
   return (
     <FormProvider {...methods}>
-      <form onSubmit={handleSubmit(submit)} className="space-y-4">{children}</form>
+      <form onSubmit={handleSubmit(submit)} className="space-y-4">
+        {children}
+      </form>
     </FormProvider>
   );
 };

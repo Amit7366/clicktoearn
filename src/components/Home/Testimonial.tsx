@@ -6,6 +6,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import Image from "next/image";
 import { ImQuotesLeft } from "react-icons/im";
+import Link from "next/link";
 
 const testimonials = [
   {
@@ -37,21 +38,28 @@ const testimonials = [
 export default function TestimonialsSection() {
   return (
     <section className="bg-[#f7f7ff] py-20 px-4 md:px-0">
-      <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
         <div className="relative z-10">
           <span className="bg-purple-100 text-purple-600 text-xs font-semibold px-4 py-1 rounded-full inline-block mb-4">
-            Course List
+            Testimonial
           </span>
           <h2 className="text-3xl font-bold text-gray-900 mb-4">
             What They Say <br /> About us
           </h2>
           <p className="text-gray-500 mb-6 max-w-md">
-            Construction is a general term meaning the art and science to form
-            systems organizations and comes from Latin Construction is
+            Discover why thousands trust Clikz2Earn for their online earnings!
+            Hear from our satisfied users who value our secure platform,
+            seamless experience, and rewarding opportunities. Their feedback
+            inspires us to continuously improve and provide the best earning
+            solutions. Join our growing community and share your success story
+            with us!
           </p>
-          <button className="bg-[#f43f5e] text-white px-6 py-2 rounded hover:bg-[#e11d48] transition text-sm">
+          <Link
+            href="/login"
+            className="bg-[#f43f5e] text-white px-6 py-2 rounded hover:bg-[#e11d48] transition text-sm"
+          >
             Explore More →
-          </button>
+          </Link>
         </div>
 
         <div>
@@ -70,8 +78,8 @@ export default function TestimonialsSection() {
           >
             {testimonials.map((t, i) => (
               <SwiperSlide key={i}>
-                <div className="w-full bg-white rounded-lg shadow p-6 relative">
-                  <div className="absolute -top-5 left-5 bg-[#7e22ce] p-2 rounded text-white z-40">
+                <div className="w-full bg-white rounded-lg shadow p-6 pt-10 relative">
+                  <div className="absolute top-0 left-5 bg-[#7e22ce] p-2 rounded text-white z-40">
                     <ImQuotesLeft className="w-6 h-6" />
                   </div>
                   <p className="text-gray-700 text-sm mb-6 mt-4">{t.text}</p>

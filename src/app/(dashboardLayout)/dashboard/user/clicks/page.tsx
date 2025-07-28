@@ -1,9 +1,11 @@
+import Loader from '@/components/Shared/loader'
 import React from 'react'
 
 const page = () => {
   return (
     <div>
-      Click
+      <Loader message={'Coming Soon'}/>
+      
     </div>
   )
 }

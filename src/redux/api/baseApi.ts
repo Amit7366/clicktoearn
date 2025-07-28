@@ -1,11 +1,25 @@
-import { axiosBaseQuery } from "@/helpers/axios/axiosBaseQuery";
+// redux/api/baseApi.ts
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { tagTypesList } from "../tag-types";
+import type { RootState } from "../store";
+import { getFromLocalStorage } from "@/utils/local-storage";
 
-// Define a service using a base URL and expected endpoints
 export const baseApi = createApi({
   reducerPath: "api",
-  baseQuery: axiosBaseQuery({ baseUrl: "https://c2e-server.vercel.app/api/v1" }),
+  baseQuery: fetchBaseQuery({
+    baseUrl: process.env.NEXT_PUBLIC_BACKEND_API_URL,
+    prepareHeaders: (headers, { getState }) => {
+      // const token = (getState() as RootState).auth.accessToken;
+      const token = getFromLocalStorage("accessToken");
+
+      if (token) {
+        headers.set("Authorization", `${token}`);
+      }
+      //console.log(token);
+      return headers;
+    },
+  }),
+  // ✅ Declare all valid tag types here
+  tagTypes: ["UserBalance"],
+
   endpoints: () => ({}),
-  tagTypes: tagTypesList,
 });

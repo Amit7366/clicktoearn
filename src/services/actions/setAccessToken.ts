@@ -6,7 +6,7 @@ import { authKey } from '@/contants/authkey';
 import { redirect } from 'next/navigation';
 
 const setAccessToken = (token: string, option?: any) => {
-   // cookies().set(authKey, token);
+   cookies().set(authKey, token);
    if (option && option.passwordChangeRequired) {
       redirect('/dashboard/change-password');
    }
